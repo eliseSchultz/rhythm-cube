@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/chair-2.obj-0544e82fa3688080496c0ce7db42126e.mesh"
+
+[deps]
+
+files=[ "res://.import/chair-2.obj-0544e82fa3688080496c0ce7db42126e.mesh" ]
+
+source_file="res://assets/models/obj_mtl/chair-2.obj"
+dest_files=[ "res://.import/chair-2.obj-0544e82fa3688080496c0ce7db42126e.mesh", "res://.import/chair-2.obj-0544e82fa3688080496c0ce7db42126e.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

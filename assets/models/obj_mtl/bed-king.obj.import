@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/bed-king.obj-2e57cb1812b4297d03b2b5c1c7a4c05e.mesh"
+
+[deps]
+
+files=[ "res://.import/bed-king.obj-2e57cb1812b4297d03b2b5c1c7a4c05e.mesh" ]
+
+source_file="res://assets/models/obj_mtl/bed-king.obj"
+dest_files=[ "res://.import/bed-king.obj-2e57cb1812b4297d03b2b5c1c7a4c05e.mesh", "res://.import/bed-king.obj-2e57cb1812b4297d03b2b5c1c7a4c05e.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

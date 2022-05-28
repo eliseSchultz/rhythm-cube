@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://BeatPlayer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://MainMenu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Global.gd" type="Script" id=3]
+[ext_resource path="res://MainMenuVP.tscn" type="PackedScene" id=4]
+
+[node name="Global" type="Node"]
+script = ExtResource( 3 )
+
+[node name="MainMenu" parent="." instance=ExtResource( 2 )]
+
+[node name="MainMenuVP" parent="MainMenu" instance=ExtResource( 4 )]
+
+[node name="BeatPlayer" parent="." instance=ExtResource( 1 )]
+
+[connection signal="input_pressed" from="MainMenu" to="BeatPlayer" method="_on_MainMenu_input_pressed"]
+[connection signal="measure" from="BeatPlayer" to="MainMenu" method="_on_BeatPlayer_measure"]
+[connection signal="note" from="BeatPlayer" to="." method="_on_BeatPlayer_note"]
+[connection signal="note" from="BeatPlayer" to="MainMenu" method="_on_BeatPlayer_note"]
+[connection signal="note" from="BeatPlayer" to="MainMenu/MainMenuVP" method="_on_BeatPlayer_note"]

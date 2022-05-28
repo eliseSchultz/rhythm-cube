@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/sounds/music/simple_kicksnare88.wav" type="AudioStream" id=1]
+[ext_resource path="res://BeatPlayer.gd" type="Script" id=2]
+
+[node name="BeatPlayer" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="StartTimer" type="Timer" parent="."]

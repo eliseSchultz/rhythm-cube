@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/chair-rock.obj-279d2d40564eece0d6466bc06d3b309c.mesh"
+
+[deps]
+
+files=[ "res://.import/chair-rock.obj-279d2d40564eece0d6466bc06d3b309c.mesh" ]
+
+source_file="res://assets/models/obj_mtl/chair-rock.obj"
+dest_files=[ "res://.import/chair-rock.obj-279d2d40564eece0d6466bc06d3b309c.mesh", "res://.import/chair-rock.obj-279d2d40564eece0d6466bc06d3b309c.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

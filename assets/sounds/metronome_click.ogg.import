@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/metronome_click.ogg-291316527c164ba8c47ad0e71b2b8011.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/metronome_click.ogg"
+dest_files=[ "res://.import/metronome_click.ogg-291316527c164ba8c47ad0e71b2b8011.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Metronome.tscn" type="PackedScene" id=1]
+[ext_resource path="res://MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://MainMenuVP.tscn" type="PackedScene" id=4]
+
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("Viewport")
+
+[node name="MainMenu" type="Node"]
+script = ExtResource( 2 )
+
+[node name="Metronome" parent="." instance=ExtResource( 1 )]
+position = Vector2( 20, 20 )
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 640, 480 )
+size_override_stretch = true
+render_target_v_flip = true
+
+[node name="MainMenuVP" parent="Viewport" instance=ExtResource( 4 )]
+
+[node name="ViewportSprite" type="Sprite" parent="."]
+position = Vector2( 320, 240 )
+z_index = -10
+texture = SubResource( 1 )

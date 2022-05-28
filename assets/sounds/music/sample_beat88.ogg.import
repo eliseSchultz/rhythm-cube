@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sample_beat88.ogg-c9ff3b6baa1c7e3c4cf171055d9cc451.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/music/sample_beat88.ogg"
+dest_files=[ "res://.import/sample_beat88.ogg-c9ff3b6baa1c7e3c4cf171055d9cc451.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
