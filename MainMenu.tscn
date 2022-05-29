@@ -112,6 +112,7 @@ position = Vector2( 320, 240 )
 texture = ExtResource( 8 )
 
 [node name="FinalScoreBG" type="RichTextLabel" parent="."]
+visible = false
 modulate = Color( 0, 0, 0, 1 )
 margin_left = 217.0
 margin_top = 84.0
@@ -121,6 +122,7 @@ theme = SubResource( 7 )
 text = "S"
 
 [node name="FinalScore" type="RichTextLabel" parent="."]
+visible = false
 modulate = Color( 0.788235, 0.921569, 1, 1 )
 margin_left = 237.0
 margin_top = 104.0
