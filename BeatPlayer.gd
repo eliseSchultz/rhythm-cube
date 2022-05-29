@@ -24,7 +24,8 @@ var time_off_beat = 0.0
 
 signal beat(position)
 signal measure(position)
-signal note(position)
+signal note(song_position_in_beats, song_position_in_notes)
+signal sig_time_off_beat(v2TimeOffBeat)
 
 
 func _ready():
@@ -53,7 +54,7 @@ func report_beat():
 func report_note():
 	if last_reported_note < song_position_in_notes:
 		note = note % notes_per_measure
-		emit_signal("note", note)
+		emit_signal("note", song_position_in_beats, song_position_in_notes)
 		last_reported_note = song_position_in_notes
 		note += 1
 
@@ -102,3 +103,8 @@ func _on_StartTimer_timeout():
 func _on_MainMenu_input_pressed(input):
 	time_after_note()
 	
+
+
+func _on_Global_sig_hit_input(input):
+	emit_signal("sig_time_off_beat",time_after_note(), input);
+	pass # Replace with function body.

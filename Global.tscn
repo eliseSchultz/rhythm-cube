@@ -13,9 +13,13 @@ script = ExtResource( 3 )
 [node name="MainMenuVP" parent="MainMenu" instance=ExtResource( 4 )]
 
 [node name="BeatPlayer" parent="." instance=ExtResource( 1 )]
+volume_db = -1.169
 
+[connection signal="sig_hit_input" from="." to="BeatPlayer" method="_on_Global_sig_hit_input"]
 [connection signal="input_pressed" from="MainMenu" to="BeatPlayer" method="_on_MainMenu_input_pressed"]
+[connection signal="camera_turn" from="MainMenu/MainMenuVP" to="MainMenu" method="_on_MainMenuVP_camera_turn"]
 [connection signal="measure" from="BeatPlayer" to="MainMenu" method="_on_BeatPlayer_measure"]
 [connection signal="note" from="BeatPlayer" to="." method="_on_BeatPlayer_note"]
 [connection signal="note" from="BeatPlayer" to="MainMenu" method="_on_BeatPlayer_note"]
 [connection signal="note" from="BeatPlayer" to="MainMenu/MainMenuVP" method="_on_BeatPlayer_note"]
+[connection signal="sig_time_off_beat" from="BeatPlayer" to="MainMenu" method="_on_BeatPlayer_sig_time_off_beat"]
