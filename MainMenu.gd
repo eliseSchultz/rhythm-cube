@@ -25,7 +25,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if(is_end_game && Input.is_action_just_pressed("ui_accept")):
+	if(is_end_game && Input.is_action_just_pressed("ui_end")):
 		get_tree().quit()
 	$Viewport/MainMenuVP/lamp/OmniLight.visible = is_lamp_on
 		
@@ -76,6 +76,10 @@ func _on_BeatPlayer_note(song_position_in_beats, song_position_in_notes):
 		$Metronome/Click.play()
 		$F.modulate = Color("ef1543")
 		currPlacement += 1;
+	elif(hitPlacement == song_position_in_notes):
+		$F.modulate = Color("6de735")
+	else:
+		$F.modulate = Color("c9ebff")
 	if(!$GreenCheck.visible && song_position_in_notes == hitPlacement + 1):
 		if($MissSound.playing):
 			$MissSound.stop()
@@ -87,11 +91,10 @@ func _on_BeatPlayer_note(song_position_in_beats, song_position_in_notes):
 		missed_last = false;
 		$RedX.visible = false;
 		$GreenCheck.visible = false;
-	if(hitPlacement == song_position_in_notes):
-		$F.modulate = Color("c9ebff")
+	
 
 func _on_BeatPlayer_sig_time_off_beat(v2TimeOffBeat, input):
-	if(input == "RIGHT_HIT" && int(v2TimeOffBeat.x) % 2 == 1):
+	if(input == "RIGHT_HIT" && int(v2TimeOffBeat.x) % 4 == 2):
 		if($SwitchSound.playing):
 			$SwitchSound.stop()
 		$SwitchSound.play()

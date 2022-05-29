@@ -12,6 +12,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if(is_end_game && Input.is_action_just_pressed("ui_accept")):
+		get_tree().reload_current_scene();
 	if(!$BeatPlayer.playing && Input.is_action_just_pressed("ui_accept") && !is_end_game):
 		startedPlayer = true
 		$MainMenu.start_playing()
@@ -19,6 +21,8 @@ func _process(delta):
 	if(startedPlayer && !$BeatPlayer.playing):
 		$MainMenu.end_game()
 		is_end_game = true
+		
+
 		
 	if($BeatPlayer.playing):
 		handle_input();
