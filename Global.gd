@@ -1,6 +1,7 @@
 extends Node
 
 var startedPlayer = false
+var is_end_game = false
 
 signal sig_hit_input(input)
 
@@ -11,12 +12,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(!$BeatPlayer.playing && Input.is_action_just_pressed("ui_accept")):
+	if(!$BeatPlayer.playing && Input.is_action_just_pressed("ui_accept") && !is_end_game):
 		startedPlayer = true
 		$MainMenu.start_playing()
 		$BeatPlayer.play_from_beat(0,0)
 	if(startedPlayer && !$BeatPlayer.playing):
 		$MainMenu.end_game()
+		is_end_game = true
 		
 	if($BeatPlayer.playing):
 		handle_input();
