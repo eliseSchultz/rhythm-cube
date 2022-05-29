@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/soda_cans.ogg-504a651074773fde804b574ccbcaf7b1.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/music/soda_cans.ogg"
+dest_files=[ "res://.import/soda_cans.ogg-504a651074773fde804b574ccbcaf7b1.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

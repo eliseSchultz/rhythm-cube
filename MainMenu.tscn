@@ -1,14 +1,15 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Metronome.tscn" type="PackedScene" id=1]
 [ext_resource path="res://MainMenu.gd" type="Script" id=2]
 [ext_resource path="res://assets/fonts/Blaec-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://MainMenuVP.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/sounds/sfx/miss_sound.ogg" type="AudioStream" id=5]
-[ext_resource path="res://assets/sounds/sfx/hit_sound.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/sounds/sfx/can_opening.ogg" type="AudioStream" id=6]
 [ext_resource path="res://assets/sprites/redX.png" type="Texture" id=7]
 [ext_resource path="res://assets/sprites/greenCheck.png" type="Texture" id=8]
 [ext_resource path="res://assets/sounds/sfx/switch_sound.ogg" type="AudioStream" id=9]
+[ext_resource path="res://assets/sounds/sfx/can_placed.ogg" type="AudioStream" id=10]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("Viewport")
@@ -78,7 +79,7 @@ text = "Press Space"
 stream = ExtResource( 5 )
 
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
+stream = ExtResource( 10 )
 
 [node name="FBG" type="RichTextLabel" parent="."]
 visible = false
@@ -111,26 +112,27 @@ position = Vector2( 320, 240 )
 texture = ExtResource( 8 )
 
 [node name="FinalScoreBG" type="RichTextLabel" parent="."]
-visible = false
 modulate = Color( 0, 0, 0, 1 )
 margin_left = 217.0
 margin_top = 84.0
-margin_right = 405.0
+margin_right = 450.0
 margin_bottom = 380.0
 theme = SubResource( 7 )
 text = "S"
 
 [node name="FinalScore" type="RichTextLabel" parent="."]
-visible = false
 modulate = Color( 0.788235, 0.921569, 1, 1 )
 margin_left = 237.0
 margin_top = 104.0
-margin_right = 425.0
+margin_right = 478.0
 margin_bottom = 400.0
 theme = SubResource( 7 )
 text = "S"
 
 [node name="SwitchSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
+
+[node name="WarningSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 
 [editable path="Viewport/MainMenuVP"]

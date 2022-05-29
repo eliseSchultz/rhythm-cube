@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/can_opening.ogg-945b1debd209ab79e2f4c716f242e13d.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/can_opening.ogg"
+dest_files=[ "res://.import/can_opening.ogg-945b1debd209ab79e2f4c716f242e13d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
