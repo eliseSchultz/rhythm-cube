@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/showerRound.obj-09c452559660a0d2a095c58935b02a42.mesh"
+
+[deps]
+
+files=[ "res://.import/showerRound.obj-09c452559660a0d2a095c58935b02a42.mesh" ]
+
+source_file="res://assets/models/OBJ format/showerRound.obj"
+dest_files=[ "res://.import/showerRound.obj-09c452559660a0d2a095c58935b02a42.mesh", "res://.import/showerRound.obj-09c452559660a0d2a095c58935b02a42.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

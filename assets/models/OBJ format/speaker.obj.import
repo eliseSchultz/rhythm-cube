@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/speaker.obj-3d2b5d1684f09fa0af7482c8873bfe9a.mesh"
+
+[deps]
+
+files=[ "res://.import/speaker.obj-3d2b5d1684f09fa0af7482c8873bfe9a.mesh" ]
+
+source_file="res://assets/models/OBJ format/speaker.obj"
+dest_files=[ "res://.import/speaker.obj-3d2b5d1684f09fa0af7482c8873bfe9a.mesh", "res://.import/speaker.obj-3d2b5d1684f09fa0af7482c8873bfe9a.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

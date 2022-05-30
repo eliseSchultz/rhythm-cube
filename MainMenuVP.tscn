@@ -1,120 +1,270 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://assets/models/obj_mtl/chair-2.obj" type="ArrayMesh" id=1]
-[ext_resource path="res://assets/models/obj_mtl/lamp.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://assets/models/OBJ format/lampSquareFloor.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://MainMenuVP.gd" type="Script" id=3]
-[ext_resource path="res://assets/models/obj_mtl/cupboard.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://assets/models/OBJ format/cardboardBoxOpen.obj" type="ArrayMesh" id=4]
 [ext_resource path="res://assets/models/soda_can.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://SodaCan.tscn" type="PackedScene" id=6]
+[ext_resource path="res://blue-greenalbedo.tres" type="Material" id=7]
+[ext_resource path="res://assets/models/OBJ format/speakerSmall.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://assets/models/OBJ format/bookcaseOpen.obj" type="ArrayMesh" id=9]
+[ext_resource path="res://assets/models/OBJ format/plantSmall3.obj" type="ArrayMesh" id=10]
+[ext_resource path="res://assets/models/OBJ format/plantSmall1.obj" type="ArrayMesh" id=11]
+[ext_resource path="res://assets/models/OBJ format/televisionModern.obj" type="ArrayMesh" id=12]
+[ext_resource path="res://WallArt.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/sprites/wallart.png" type="Texture" id=14]
 
 [sub_resource type="CubeMesh" id=1]
 
 [sub_resource type="SpatialMaterial" id=2]
-albedo_color = Color( 0.427451, 0.905882, 0.207843, 1 )
+albedo_color = Color( 0.168627, 0.168627, 0.87451, 1 )
 
 [sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 0.92549, 0.976471, 0.0666667, 1 )
 
+[sub_resource type="SpatialMaterial" id=29]
+albedo_color = Color( 0.427451, 0.905882, 0.207843, 1 )
+
+[sub_resource type="Environment" id=13]
+ambient_light_color = Color( 1, 1, 1, 1 )
+
 [sub_resource type="SpatialMaterial" id=6]
-albedo_color = Color( 0.168627, 0.168627, 0.87451, 1 )
+albedo_color = Color( 0.92549, 0.435294, 0.0823529, 1 )
 
 [sub_resource type="SpatialMaterial" id=7]
 albedo_color = Color( 0.937255, 0.0823529, 0.262745, 1 )
 
+[sub_resource type="SpatialMaterial" id=30]
+
+[sub_resource type="SpatialMaterial" id=31]
+albedo_color = Color( 0.937255, 0.0823529, 0.262745, 1 )
+
+[sub_resource type="SpatialMaterial" id=32]
+albedo_color = Color( 0.517647, 0.486275, 0.517647, 1 )
+
 [sub_resource type="SpatialMaterial" id=8]
 albedo_color = Color( 0.92549, 0.435294, 0.0823529, 1 )
 
-[sub_resource type="SpatialMaterial" id=9]
-albedo_color = Color( 0.337255, 0.129412, 0.411765, 1 )
+[sub_resource type="SpatialMaterial" id=20]
+albedo_color = Color( 0.784314, 0.647059, 0.494118, 1 )
 
 [sub_resource type="CubeMesh" id=10]
 
 [sub_resource type="SpatialMaterial" id=11]
 albedo_color = Color( 0.788235, 0.921569, 1, 1 )
 
+[sub_resource type="Environment" id=12]
+ambient_light_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_color = Color( 0.337255, 0.129412, 0.411765, 1 )
+
+[sub_resource type="Curve3D" id=14]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -3.04306, 6.07967e-06, -3.57644, 0, 0, 0, 0, 0, 0, -3.65405, 6.07967e-06, -3.1439, 0, 0, 0, 0, 0, 0, -2.93444, 6.07967e-06, -3.33205, 0, 0, 0, 0, 0, 0, -3.61719, 6.07967e-06, -3.01977, 0, 0, 0, 0, 0, 0, -2.69393, 6.07967e-06, -3.19045, 0, 0, 0, 0, 0, 0, -3.51827, 6.07967e-06, -2.89563, 0, 0, 0, 0, 0, 0, -2.82582, 6.07967e-06, -2.98291, 0, 0, 0, 0, 0, 0, -3.52215, 6.07967e-06, -2.74434, 0, 0, 0, 0, 0, 0, -2.85686, 6.07967e-06, -2.84326, 0, 0, 0, 0, 0, 0, -3.03142, 6.07967e-06, -2.7036, 0, 0, 0, 0, 0, 0, -2.18768, 6.07967e-06, -2.85102, 0, 0, 0, 0, 0, 0, -2.74242, 6.07967e-06, -2.93636, 0, 0, 0, 0, 0, 0, -2.17992, 6.07967e-06, -3.08765, 0, 0, 0, 0, 0, 0, -2.72496, 6.07967e-06, -3.06632, 0, 0, 0, 0, 0, 0, -2.24393, 6.07967e-06, -3.30101, 0, 0, 0, 0, 0, 0, -2.78897, 6.07967e-06, -3.28549, 0, 0, 0, 0, 0, 0, -2.33315, 6.07967e-06, -3.53765, 0, 0, 0, 0, 0, 0, -3.07991, 6.07967e-06, -3.39993, 0, 0, 0, 0, 0, 0, -2.42044, 6.07967e-06, -3.75683, 0, 0, 0, 0, 0, 0, -3.39801, 6.07967e-06, -3.62105, 0, 0, 0, 0, 0, 0, -2.5116, 6.07967e-06, -3.94691, 0, 0, 0, 0, 0, 0, -3.30685, 6.07967e-06, -3.73937, 0, 0, 0, 0, 0, 0, -2.80255, 6.07967e-06, -4.0788, 0, 0, 0, 0, 0, 0, -3.42905, 6.07967e-06, -3.81501, 0, 0, 0, 0, 0, 0, -3.05276, 6.07967e-06, -4.17773, 0, 0, 0, 0, 0, 0, -3.92171, 6.07967e-06, -3.68118, 0, 0, 0, 0, 0, 0, -3.24478, 6.07967e-06, -4.22428, 0, 0, 0, 0, 0, 0, -3.84607, 6.07967e-06, -4.21458, 0, 0, 0, 0, 0, 0, -3.51633, 6.07967e-06, -4.11566, 0, 0, 0, 0, 0, 0, -3.9993, 6.07967e-06, -3.95079, 0, 0, 0, 0, 0, 0, -3.784, 6.07967e-06, -3.8926, 0, 0, 0, 0, 0, 0, -4.28249, 6.07967e-06, -3.66372, 0, 0, 0, 0, 0, 0, -4.06719, 6.07967e-06, -3.5551, 0, 0, 0, 0, 0, 0, -3.50663, 6.07967e-06, -3.71803, 0, 0, 0, 0, 0, 0, -4.18938, 6.07967e-06, -3.37278, 0, 0, 0, 0, 0, 0, -3.33401, 6.07967e-06, -3.5551, 0, 0, 0, 0, 0, 0, -4.14865, 6.07967e-06, -3.22343, 0, 0, 0, 0, 0, 0, -3.68702, 6.07967e-06, -3.28743, 0, 0, 0, 0, 0, 0, -3.04306, 6.07967e-06, -3.57644 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="SpatialMaterial" id=15]
+albedo_color = Color( 0.4, 0.278431, 0.192157, 1 )
+
+[sub_resource type="SpatialMaterial" id=16]
+albedo_color = Color( 0.4, 0.278431, 0.192157, 1 )
+
+[sub_resource type="SpatialMaterial" id=21]
+albedo_color = Color( 0.92549, 0.435294, 0.0823529, 1 )
+
+[sub_resource type="SpatialMaterial" id=22]
+albedo_color = Color( 0.12549, 0.709804, 0.368627, 1 )
+
+[sub_resource type="SpatialMaterial" id=18]
+albedo_color = Color( 0.92549, 0.435294, 0.0823529, 1 )
+
+[sub_resource type="SpatialMaterial" id=19]
+albedo_color = Color( 0.12549, 0.709804, 0.368627, 1 )
+
+[sub_resource type="SpatialMaterial" id=23]
+albedo_color = Color( 0.92549, 0.435294, 0.0823529, 1 )
+
+[sub_resource type="SpatialMaterial" id=24]
+albedo_color = Color( 0.12549, 0.709804, 0.368627, 1 )
+
+[sub_resource type="SpatialMaterial" id=25]
+albedo_color = Color( 0.788235, 0.921569, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=26]
+albedo_color = Color( 0.788235, 0.921569, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=27]
+albedo_color = Color( 0.0823529, 0.109804, 0.207843, 1 )
+
+[sub_resource type="SpatialMaterial" id=28]
+albedo_color = Color( 0.788235, 0.921569, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=17]
+albedo_color = Color( 0.172549, 0.270588, 0.329412, 1 )
+
 [node name="MainMenuVP" type="Spatial"]
 script = ExtResource( 3 )
+soda_can_scene = ExtResource( 6 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0 )
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -3, 0, -3 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 
 [node name="MeshInstance2" type="MeshInstance" parent="."]
-transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0, 5, -6 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 1, -3, 3, -6 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 3 )
 
 [node name="MeshInstance3" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 5, 0, 0, 0, 5, -6, 5, 0 )
+transform = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 2, -6, 3, -3 )
 mesh = SubResource( 1 )
-material/0 = SubResource( 3 )
+material/0 = SubResource( 29 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.707107, -0.194905, 0.679715, 0, 0.961262, 0.275637, -0.707107, -0.194905, 0.679715, 0, 3, 0 )
-fov = 25.0
+transform = Transform( 0.707107, -0.298836, 0.640857, 0, 0.906308, 0.422618, -0.707107, -0.298836, 0.640857, -2.7, 2, -2.7 )
+environment = SubResource( 13 )
+fov = 100.0
 
 [node name="Pulse" type="Timer" parent="Camera"]
 wait_time = 0.05
 
 [node name="blue_chair" type="MeshInstance" parent="."]
-transform = Transform( 0.992204, 0, -0.124623, 0, 1, 0, 0.124623, 0, 0.992204, -3.57962, 1, -2.76548 )
+transform = Transform( 0.753701, 0, 0.657217, 0, 1, 0, -0.657217, 0, 0.753701, -3.67241, 1, -2.8778 )
 mesh = ExtResource( 1 )
 material/0 = SubResource( 6 )
 
 [node name="lamp" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.69, 1, -3.772 )
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -4.51731, 1.0021, -4.35524 )
 mesh = ExtResource( 2 )
 material/0 = SubResource( 7 )
+material/1 = SubResource( 30 )
+material/2 = SubResource( 31 )
+material/3 = SubResource( 32 )
 
 [node name="OmniLight" type="OmniLight" parent="lamp"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.370762, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00023365, 0.379609, 0.000148773 )
+visible = false
+shadow_enabled = true
 shadow_color = Color( 0.317647, 0.317647, 0.317647, 1 )
-shadow_bias = 2.359
+shadow_bias = 0.09
 
-[node name="cupboard" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.59583, 0.962774, -4.361 )
+[node name="Cabinet" type="MeshInstance" parent="."]
+transform = Transform( 0.629211, 0, 1.89845, 0, 2, 0, -1.89845, 0, 0.629211, -4.08001, 1, -4.79788 )
+skeleton = NodePath("../CardboardBox")
+
+[node name="CardboardBox" type="MeshInstance" parent="."]
+transform = Transform( 0.629211, 0, 1.89845, 0, 2, 0, -1.89845, 0, 0.629211, -4.08001, 1, -4.79788 )
 mesh = ExtResource( 4 )
 skeleton = NodePath("../MeshInstance")
 material/0 = SubResource( 8 )
-
-[node name="soda_can0" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.56112, 1, -3.33847 )
-mesh = ExtResource( 5 )
-material/0 = SubResource( 9 )
-
-[node name="soda_can1" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.67905, 1, -3.26851 )
-mesh = ExtResource( 5 )
-material/0 = SubResource( 9 )
-
-[node name="soda_can2" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.48194, 1, -3.15156 )
-mesh = ExtResource( 5 )
-material/0 = SubResource( 9 )
-
-[node name="soda_can3" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.23045, 1, -3.37279 )
-mesh = ExtResource( 5 )
-material/0 = SubResource( 9 )
-
-[node name="soda_can4" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.44303, 1, -3.45161 )
-mesh = ExtResource( 5 )
-material/0 = SubResource( 9 )
-
-[node name="soda_can5" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.39999, 1, -3.29433 )
-mesh = ExtResource( 5 )
-material/0 = SubResource( 9 )
-
-[node name="soda_can6" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.11597, 1, -3.01886 )
-mesh = ExtResource( 5 )
-material/0 = SubResource( 9 )
+material/1 = null
+material/2 = SubResource( 20 )
+material/3 = null
 
 [node name="cube" type="MeshInstance" parent="."]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -4, 1.1, -4 )
 mesh = SubResource( 10 )
 material/0 = SubResource( 11 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 12 )
+
+[node name="SodaCans" type="Spatial" parent="."]
+visible = false
+
+[node name="soda_can0" type="MeshInstance" parent="SodaCans"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.26811, 1, -2.23954 )
+mesh = ExtResource( 5 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 9 )
+
+[node name="soda_can1" type="MeshInstance" parent="SodaCans"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.13475, 1, -2.38599 )
+mesh = ExtResource( 5 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 9 )
+
+[node name="soda_can2" type="MeshInstance" parent="SodaCans"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.71925, 1, -3.89215 )
+mesh = ExtResource( 5 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 9 )
+
+[node name="soda_can3" type="MeshInstance" parent="SodaCans"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.30869, 1, -3.37279 )
+mesh = ExtResource( 5 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 9 )
+
+[node name="SodaCanSpawn" type="Path" parent="."]
+process_priority = 1
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.199781, 1.1, -0.0630264 )
+curve = SubResource( 14 )
+
+[node name="SpawnLocation" type="PathFollow" parent="SodaCanSpawn"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.04306, 6.07967e-06, -3.57644 )
+
+[node name="BookShelf" type="MeshInstance" parent="."]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -4.9808, 1, -3.70863 )
+mesh = ExtResource( 9 )
+material/0 = SubResource( 15 )
+material/1 = SubResource( 16 )
+
+[node name="Plant" type="MeshInstance" parent="BookShelf"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0961843, 0.849822, 0.100709 )
+mesh = ExtResource( 10 )
+material/0 = SubResource( 21 )
+material/1 = SubResource( 22 )
+material/2 = SubResource( 18 )
+material/3 = SubResource( 19 )
+
+[node name="Plant2" type="MeshInstance" parent="BookShelf"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.253013, 0.609759, 0.100709 )
+mesh = ExtResource( 11 )
+material/0 = SubResource( 23 )
+material/1 = SubResource( 24 )
+material/2 = SubResource( 18 )
+material/3 = SubResource( 19 )
+
+[node name="TV" type="MeshInstance" parent="."]
+transform = Transform( -0.982238, 0, 0.187638, 0, 1, 0, -0.187638, 0, -0.982238, -2.89138, 1, -4.4066 )
+mesh = ExtResource( 12 )
+skeleton = NodePath("Speaker2")
+material/0 = SubResource( 25 )
+material/1 = SubResource( 26 )
+material/2 = SubResource( 27 )
+material/3 = SubResource( 28 )
+
+[node name="Speaker" type="MeshInstance" parent="TV"]
+transform = Transform( -0.998851, 0, -0.0479257, 0, 1, 0, 0.0479257, 0, -0.998851, 0.51506, 0, 0.034627 )
+mesh = ExtResource( 8 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 7 )
+material/1 = ExtResource( 7 )
+material/2 = ExtResource( 7 )
+material/3 = SubResource( 17 )
+
+[node name="Speaker2" type="MeshInstance" parent="TV"]
+transform = Transform( -0.991998, 0, 0.126251, 0, 1, 0, -0.126251, 0, -0.991998, -0.609567, 0, -4.76837e-07 )
+mesh = ExtResource( 8 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 7 )
+material/1 = ExtResource( 7 )
+material/2 = ExtResource( 7 )
+material/3 = SubResource( 17 )
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 210, 90 )
+audio_listener_enable_2d = true
+
+[node name="WallArt" parent="Viewport" instance=ExtResource( 13 )]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.40947, 2.21135, -4.967 )
+texture = ExtResource( 14 )
 
 [connection signal="timeout" from="Camera/Pulse" to="." method="_on_Pulse_timeout"]

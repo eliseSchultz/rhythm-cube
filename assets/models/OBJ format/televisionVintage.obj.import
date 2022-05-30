@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/televisionVintage.obj-fea66a06e73e6c4060ac52274068a58d.mesh"
+
+[deps]
+
+files=[ "res://.import/televisionVintage.obj-fea66a06e73e6c4060ac52274068a58d.mesh" ]
+
+source_file="res://assets/models/OBJ format/televisionVintage.obj"
+dest_files=[ "res://.import/televisionVintage.obj-fea66a06e73e6c4060ac52274068a58d.mesh", "res://.import/televisionVintage.obj-fea66a06e73e6c4060ac52274068a58d.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

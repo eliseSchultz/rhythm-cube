@@ -1,5 +1,7 @@
 extends Spatial
 
+export (PackedScene) var soda_can_scene
+
 var cameraMove = 1
 var cameraSpeed = 0.05
 var colors=["000000","151c35","664731","ec6f15",
@@ -34,9 +36,22 @@ func start_playing():
 
 func camera_pulse(song_position_in_beats, song_position_in_notes):
 	if(song_position_in_notes % 8 == 0):
-		$Camera.fov = 26;
+		$Camera.fov = 105;
 	else:
-		$Camera.fov = 25;
+		$Camera.fov = 100;
+
+func spawn_sodacan():
+	var sodacan = soda_can_scene.instance()
+	
+	var soda_spawn_location = get_node("SodaCanSpawn/SpawnLocation")
+	soda_spawn_location.unit_offset = randf()
+	var camera_position = $Camera.transform.origin
+	var spawn_location = soda_spawn_location.translation
+	spawn_location.y = 1
+	sodacan.initialize(spawn_location, camera_position)
+	
+	add_child(sodacan)
+	
 
 func _on_Pulse_timeout():
 	$Camera.fov = 25;
@@ -46,3 +61,4 @@ func _on_Pulse_timeout():
 func _on_BeatPlayer_note(song_position_in_beats, song_position_in_notes):
 	if(song_position_in_notes % 4 == 0):
 		cubeMaterial.albedo_color = Color(colors[song_position_in_notes % 16])
+
