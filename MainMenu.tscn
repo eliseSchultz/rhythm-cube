@@ -62,18 +62,18 @@ texture = SubResource( 1 )
 [node name="PressSpaceBG" type="RichTextLabel" parent="."]
 modulate = Color( 0.0823529, 0.109804, 0.207843, 1 )
 margin_left = 50.0
-margin_top = 88.0
+margin_top = 198.0
 margin_right = 585.0
-margin_bottom = 237.0
+margin_bottom = 347.0
 theme = SubResource( 3 )
 text = "Press Space"
 
 [node name="PressSpace" type="RichTextLabel" parent="."]
 modulate = Color( 0.788235, 0.921569, 1, 1 )
 margin_left = 56.0
-margin_top = 94.0
+margin_top = 204.0
 margin_right = 591.0
-margin_bottom = 243.0
+margin_bottom = 353.0
 theme = SubResource( 3 )
 text = "Press Space"
 
