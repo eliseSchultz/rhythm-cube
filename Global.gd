@@ -21,7 +21,8 @@ func _process(delta):
 	if(startedPlayer && !$MainMenu/BeatPlayer.playing):
 		$MainMenu.end_game()
 		is_end_game = true
-		
+	if(is_end_game && Input.is_action_just_pressed("ui_end")):
+		get_tree().quit()
 
 		
 	if($MainMenu/BeatPlayer.playing):

@@ -27,8 +27,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if(is_end_game && Input.is_action_just_pressed("ui_end")):
-		get_tree().quit()
 	if(is_lamp_on):
 		$Viewport/MainMenuVP/Camera.environment.ambient_light_color = Color("ffffff")		
 	else:
@@ -106,22 +104,23 @@ func _on_BeatPlayer_note(song_position_in_beats, song_position_in_notes):
 	
 
 func _on_BeatPlayer_sig_time_off_beat(v2TimeOffBeat, input):
-	if(input == "RIGHT_HIT" && int(v2TimeOffBeat.x) % 4 == 2):
-		if($SwitchSound.playing):
-			$SwitchSound.stop()
-		$SwitchSound.play()
-		score += 10;
-		is_lamp_on = !is_lamp_on
-	elif(!missed_last && v2TimeOffBeat.x == hitPlacement):
-		if(input == "LEFT_HIT"):
-			successful_hit()
-	elif(input == "LEFT_HIT"):
-		if($MissSound.playing):
-			$MissSound.stop()
-		$MissSound.play()
-		score -= 20
-		missed_last = true;
-		$RedX.visible = true;
+	if(!hit_last && !missed_last):
+		if(input == "RIGHT_HIT" && int(v2TimeOffBeat.x) % 4 == 2):
+			if($SwitchSound.playing):
+				$SwitchSound.stop()
+			$SwitchSound.play()
+			score += 10;
+			is_lamp_on = !is_lamp_on
+		elif(!missed_last && v2TimeOffBeat.x == hitPlacement):
+			if(input == "LEFT_HIT"):
+				successful_hit()
+		elif(input == "LEFT_HIT"):
+			if($MissSound.playing):
+				$MissSound.stop()
+			$MissSound.play()
+			score -= 20
+			missed_last = true;
+			$RedX.visible = true;
 	
 
 func successful_hit():
