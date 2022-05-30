@@ -1,6 +1,6 @@
 extends Node
 
-var levelJson = {"note_placement":[16,24,32,40,50,56,64,72,80,88,98,104,112,120,128,132,136,144,152,160,168,176,186,192,200,210,216,226,232,240,248,258,264]}
+var levelJson = {"note_placement":[16,24,32,40,50,56,64,72,80,88,98,104,112,120,128,136,144,152,160,168,176,186,192,200,210,216,226,232,240,248,258,264]}
 
 var strCan = "soda_can"
 var currPlacement = 0
@@ -68,7 +68,8 @@ func end_game():
 	is_end_game = true;
 	
 
-#func _on_BeatPlayer_measure(position):
+func _on_BeatPlayer_measure(position):
+	pass
 	#$Metronome.metronome_pulse();
 
 
