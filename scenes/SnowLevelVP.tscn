@@ -26,10 +26,6 @@ size = Vector3( 0.02, 0.02, 0.02 )
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.707107, -0.0616284, -0.704416, 0, 0.996195, -0.0871557, 0.707107, 0.0616284, 0.704416, 2, 1.1, -2 )
-fov = 90.0
-
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 3, 0, -3 )
 mesh = SubResource( 2 )
@@ -54,6 +50,18 @@ visible = false
 [node name="SnowTree" parent="." instance=ExtResource( 3 )]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 3, 1, -4.04413 )
 
+[node name="SnowTree2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.0756048, 0, 0.0654517, 0, 0.1, 0, -0.0654517, 0, 0.0756048, 3.70593, 1, -2.43753 )
+
+[node name="SnowTree3" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.0668702, 0, -0.074353, 0, 0.1, 0, 0.074353, 0, 0.0668702, 1.42748, 1, -2.43753 )
+
+[node name="SnowTree4" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.0885166, 0, -0.0465275, 0, 0.1, 0, 0.0465275, 0, 0.0885166, 1.42748, 1, -3.73741 )
+
+[node name="SnowTree5" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.0750204, 0, -0.0661207, 0, 0.1, 0, -0.0661207, 0, -0.0750204, 2.80526, 1, -0.952637 )
+
 [node name="CPUParticles" type="CPUParticles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 6.133, -4 )
 amount = 200
@@ -65,3 +73,8 @@ direction = Vector3( -1, -1, 1 )
 spread = 59.63
 gravity = Vector3( 0, -0.489, 0 )
 initial_velocity = 1.0
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.707107, -0.0616284, -0.704416, 0, 0.996195, -0.0871557, 0.707107, 0.0616284, 0.704416, 2, 1.1, -2 )
+visible = false
+fov = 90.0
