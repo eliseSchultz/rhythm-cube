@@ -51,10 +51,8 @@ func start_playing():
 func camera_pulse(song_position_in_beats, song_position_in_notes):
 	if(song_position_in_notes % 8 == 0):
 		$Camera.fov += 5;
-		print($Camera.fov)
 	else:
 		$Camera.fov -= 5;
-	print($Camera.fov)
 
 func spawn_sodacan():
 	var sodacan = soda_can_scene.instance()
@@ -76,7 +74,6 @@ func _on_Pulse_timeout():
 
 func _on_BeatPlayer_note(song_position_in_beats, song_position_in_notes):
 	if(song_position_in_beats == 40):
-		print("now end")
 		is_end_camera = true
 		$Camera2.current = true
 		$BackWall.scale = Vector3(20,15,1)
