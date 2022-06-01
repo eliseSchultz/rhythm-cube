@@ -1,0 +1,160 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://assets/fonts/Blaec-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/Metronome.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/sprites/greenCheck.png" type="Texture" id=3]
+[ext_resource path="res://assets/sounds/sfx/miss_sound.ogg" type="AudioStream" id=4]
+[ext_resource path="res://scenes/MainMenuVP.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/sounds/sfx/switch_sound.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/sprites/redX.png" type="Texture" id=7]
+[ext_resource path="res://assets/sounds/sfx/can_opening.ogg" type="AudioStream" id=8]
+[ext_resource path="res://assets/sprites/soda_can_sprite.png" type="Texture" id=9]
+[ext_resource path="res://assets/sounds/sfx/can_placed.ogg" type="AudioStream" id=10]
+[ext_resource path="res://scripts/MainMenu.gd" type="Script" id=11]
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=3]
+default_font = SubResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 213
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=5]
+default_font = SubResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 128
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=7]
+default_font = SubResource( 6 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 56
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=9]
+default_font = SubResource( 8 )
+
+[node name="MainMenu" type="Node"]
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 240.0 ],
+"_edit_vertical_guides_": [ 320.0 ]
+}
+
+[node name="Metronome" parent="." instance=ExtResource( 2 )]
+position = Vector2( 20, 20 )
+
+[node name="MainMenuVP" parent="." instance=ExtResource( 5 )]
+
+[node name="PressSpaceBG" type="RichTextLabel" parent="."]
+modulate = Color( 0.0823529, 0.109804, 0.207843, 1 )
+margin_left = 50.0
+margin_top = 199.0
+margin_right = 585.0
+margin_bottom = 348.0
+theme = SubResource( 3 )
+text = "Press Space"
+
+[node name="PressSpace" type="RichTextLabel" parent="."]
+modulate = Color( 0.788235, 0.921569, 1, 1 )
+margin_left = 55.0
+margin_top = 203.0
+margin_right = 590.0
+margin_bottom = 352.0
+theme = SubResource( 3 )
+text = "Press Space"
+
+[node name="MissSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="FBG" type="RichTextLabel" parent="."]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 76.0
+margin_top = 110.0
+margin_right = 545.0
+margin_bottom = 355.0
+theme = SubResource( 5 )
+text = "f"
+
+[node name="F" type="RichTextLabel" parent="."]
+visible = false
+modulate = Color( 0.788235, 0.921569, 1, 1 )
+margin_left = 96.0
+margin_top = 130.0
+margin_right = 565.0
+margin_bottom = 375.0
+theme = SubResource( 5 )
+text = "f"
+
+[node name="RedX" type="Sprite" parent="."]
+visible = false
+position = Vector2( 320, 240 )
+texture = ExtResource( 7 )
+
+[node name="GreenCheck" type="Sprite" parent="."]
+visible = false
+position = Vector2( 320, 240 )
+texture = ExtResource( 3 )
+
+[node name="SwitchSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="WarningSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="SodaCanSprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 320, 240 )
+texture = ExtResource( 9 )
+
+[node name="FinalScoreText" type="Node2D" parent="."]
+visible = false
+position = Vector2( 289, 235 )
+
+[node name="FinalScoreBG" type="RichTextLabel" parent="FinalScoreText"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 227.0
+margin_top = 95.0
+margin_right = 1071.0
+margin_bottom = 260.0
+theme = SubResource( 7 )
+text = "S"
+
+[node name="FinalScore" type="RichTextLabel" parent="FinalScoreText"]
+modulate = Color( 0.788235, 0.921569, 1, 1 )
+margin_left = 237.0
+margin_top = 104.0
+margin_right = 1118.0
+margin_bottom = 253.0
+theme = SubResource( 7 )
+text = "S"
+
+[node name="FinalScoreTextBG" type="RichTextLabel" parent="FinalScoreText"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = -269.0
+margin_top = 167.0
+margin_right = 354.0
+margin_bottom = 291.0
+theme = SubResource( 9 )
+text = "FINAL SCORE"
+
+[node name="FinalScoreText" type="RichTextLabel" parent="FinalScoreText"]
+modulate = Color( 0.788235, 0.921569, 1, 1 )
+margin_left = -265.0
+margin_top = 171.0
+margin_right = 358.0
+margin_bottom = 295.0
+theme = SubResource( 9 )
+text = "FINAL SCORE"
+
+[editable path="MainMenuVP"]

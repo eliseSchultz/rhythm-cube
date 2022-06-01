@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/models/snowtree.obj" type="ArrayMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.172549, 0.270588, 0.329412, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.239216, 0.517647, 0.478431, 1 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.788235, 0.921569, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.4, 0.278431, 0.192157, 1 )
+
+[node name="SnowTree" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = SubResource( 1 )
+material/1 = SubResource( 2 )
+material/2 = SubResource( 5 )
+material/3 = SubResource( 4 )
+
+[node name="Skeleton" type="Skeleton" parent="."]

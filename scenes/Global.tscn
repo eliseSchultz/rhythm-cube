@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/sounds/music/soda_can_song.ogg" type="AudioStream" id=1]
+[ext_resource path="res://scenes/MainMenuVP.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/Global.gd" type="Script" id=3]
+[ext_resource path="res://scenes/MainMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/BeatPlayer.tscn" type="PackedScene" id=5]
+
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("Viewport")
+
+[node name="Global" type="Node"]
+script = ExtResource( 3 )
+
+[node name="MainMenu" parent="." instance=ExtResource( 4 )]
+
+[node name="MainMenuVP" parent="MainMenu" instance=ExtResource( 2 )]
+
+[node name="BeatPlayer" parent="MainMenu" instance=ExtResource( 5 )]
+stream = ExtResource( 1 )
+volume_db = -1.0
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 640, 480 )
+render_target_v_flip = true
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 320, 240 )
+texture = SubResource( 1 )
+
+[connection signal="sig_hit_input" from="." to="MainMenu/BeatPlayer" method="_on_Global_sig_hit_input"]
+[connection signal="input_pressed" from="MainMenu" to="MainMenu/BeatPlayer" method="_on_MainMenu_input_pressed"]
+[connection signal="camera_turn" from="MainMenu/MainMenuVP" to="MainMenu" method="_on_MainMenuVP_camera_turn"]
+[connection signal="measure" from="MainMenu/BeatPlayer" to="MainMenu" method="_on_BeatPlayer_measure"]
+[connection signal="note" from="MainMenu/BeatPlayer" to="." method="_on_BeatPlayer_note"]
+[connection signal="note" from="MainMenu/BeatPlayer" to="MainMenu" method="_on_BeatPlayer_note"]
+[connection signal="note" from="MainMenu/BeatPlayer" to="MainMenu/MainMenuVP" method="_on_BeatPlayer_note"]
+[connection signal="sig_time_off_beat" from="MainMenu/BeatPlayer" to="MainMenu" method="_on_BeatPlayer_sig_time_off_beat"]
+
+[editable path="MainMenu"]
+[editable path="MainMenu/MainMenuVP"]

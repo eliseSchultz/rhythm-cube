@@ -11,15 +11,13 @@ config_version=4
 [application]
 
 config/name="rhythmcube"
-run/main_scene="res://Global.tscn"
+run/main_scene="res://scenes/Global.tscn"
 config/icon="res://icon.png"
 
 [display]
 
 window/size/width=640
 window/size/height=480
-window/size/resizable=false
-window/size/fullscreen=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
@@ -44,4 +42,4 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://assets/tres/default_env.tres"
