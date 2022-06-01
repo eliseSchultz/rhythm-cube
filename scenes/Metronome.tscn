@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Metronome.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Metronome.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/metronomeInd.png" type="Texture" id=2]
 [ext_resource path="res://assets/sounds/sfx/metronome_click.ogg" type="AudioStream" id=3]
 

@@ -1,6 +1,6 @@
 extends Node
 
-var levelJson = {"note_placement":[16,24,32,40,50,56,64,72,80,88,98,104,112,120,128,136,144,152,160,168,176,186,192,200,210,216,226,232,240,248,258,264]}
+var levelJson = {"note_placement":[16,24,34,40,48,56,66,72,80,88,96,106,112,120,128,136,144,154,160,168,176,186,192,200,210,216,226,232,240,248,258,264,274,280,288,298,304]}
 
 var strCan = "soda_can"
 var currPlacement = 0
@@ -28,13 +28,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if(is_lamp_on):
-		$Viewport/MainMenuVP/Camera.environment.ambient_light_color = Color("ffffff")		
+		$MainMenuVP/WorldEnvironment.environment.ambient_light_color = Color("ffffff")		
 	else:
-		$Viewport/MainMenuVP/Camera.environment.ambient_light_color = Color("888888")
+		$MainMenuVP/WorldEnvironment.environment.ambient_light_color = Color("888888")
 		
 
 func start_playing():
-	$Viewport/MainMenuVP.start_playing()
+	$MainMenuVP.start_playing()
 	$PressSpace.visible = false;
 	$PressSpaceBG.visible = false;
 	$FBG.visible = true
@@ -42,28 +42,29 @@ func start_playing():
 	
 func end_game():
 	if(score >= 930):
-		$FinalScore.text = "S"
-		$FinalScoreBG.text = "S"
+		$FinalScoreText/FinalScore.text = "S"
+		$FinalScoreText/FinalScoreBG.text = "S"
 	elif(score >= 800):
-		$FinalScore.text = "A"
-		$FinalScoreBG.text = "A"
+		$FinalScoreText/FinalScore.text = "A"
+		$FinalScoreText/FinalScoreBG.text = "A"
 	elif(score >= 600):
-		$FinalScore.text = "B"
-		$FinalScoreBG.text = "B"
+		$FinalScoreText/FinalScore.text = "B"
+		$FinalScoreText/FinalScoreBG.text = "B"
 	elif(score >= 400):
-		$FinalScore.text = "C"
-		$FinalScoreBG.text = "C"
+		$FinalScoreText/FinalScore.text = "C"
+		$FinalScoreText/FinalScoreBG.text = "C"
 	else:
-		$FinalScore.text = "F"
-		$FinalScoreBG.text = "F"
+		$FinalScoreText/FinalScore.text = "F"
+		$FinalScoreText/FinalScoreBG.text = "F"
 		
 	$FBG.visible = false
 	$F.visible = false
 	
-	$FinalScore.visible = true
-	$FinalScoreBG.visible = true
+	$FinalScoreText.visible = true
 	
 	is_end_game = true;
+	$RedX.visible = false;
+	$GreenCheck.visible = false;
 	
 
 func _on_BeatPlayer_measure(position):
@@ -72,8 +73,8 @@ func _on_BeatPlayer_measure(position):
 
 
 func _on_BeatPlayer_note(song_position_in_beats, song_position_in_notes):
-	$Viewport/MainMenuVP.camera_pulse(song_position_in_beats, song_position_in_notes);
-	if(song_position_in_notes >= 60):
+	print(song_position_in_beats)
+	if(song_position_in_beats >= 12):
 		$FBG.visible = false
 		$F.visible = false
 	if(currPlacement < levelJson["note_placement"].size() && song_position_in_notes == levelJson["note_placement"][currPlacement]):
@@ -129,7 +130,7 @@ func successful_hit():
 	$HitSound.play()
 	hit_last = true;
 	$GreenCheck.visible = true
-	$Viewport/MainMenuVP.spawn_sodacan()
+	$MainMenuVP.spawn_sodacan()
 	score += 30
 	
 
