@@ -41,8 +41,8 @@ func _process(delta):
 		
 func camera_end_pan(delta):
 	if($Camera2.translation.z < 0):
-		$Camera2.translate(Vector3(0, 0, delta*0.08))
-		$Camera2.fov += delta * 1.7
+		$Camera2.translate(Vector3(0, 0, delta*0.1))
+		$Camera2.fov += delta * 1.9
 
 func start_playing():
 	before_start = false
@@ -79,8 +79,8 @@ func _on_BeatPlayer_note(song_position_in_beats, song_position_in_notes):
 		$BackWall.scale = Vector3(20,15,1)
 		$LeftWall.scale = Vector3(1,15,10)
 		$Floor.scale = Vector3 (30,1,10)
-	elif(song_position_in_beats < 40):
-		camera_pulse(song_position_in_beats, song_position_in_notes)
+	#elif(song_position_in_beats < 40):
+		#camera_pulse(song_position_in_beats, song_position_in_notes)
 	if(song_position_in_notes % 4 == 0):
 		cubeMaterial.albedo_color = Color(colors[song_position_in_notes % 16])
 

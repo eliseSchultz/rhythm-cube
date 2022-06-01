@@ -73,7 +73,6 @@ func _on_BeatPlayer_measure(position):
 
 
 func _on_BeatPlayer_note(song_position_in_beats, song_position_in_notes):
-	print(song_position_in_beats)
 	if(song_position_in_beats >= 12):
 		$FBG.visible = false
 		$F.visible = false
