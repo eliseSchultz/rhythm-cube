@@ -1,30 +1,48 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/sounds/music/soda_can_song.ogg" type="AudioStream" id=1]
 [ext_resource path="res://scenes/MainMenuVP.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/Global.gd" type="Script" id=3]
 [ext_resource path="res://scenes/MainMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/BeatPlayer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/shaders/4bitShader.gdshader" type="Shader" id=6]
+[ext_resource path="res://assets/sprites/palette.png" type="Texture" id=7]
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 6 )
+shader_param/u_dither_tex = ExtResource( 7 )
+
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("Viewport")
 
 [node name="Global" type="Node"]
 script = ExtResource( 3 )
 
-[node name="MainMenu" parent="." instance=ExtResource( 4 )]
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 640, 480 )
+render_target_v_flip = true
 
-[node name="MainMenuVP" parent="MainMenu" instance=ExtResource( 2 )]
+[node name="MainMenu" parent="Viewport" instance=ExtResource( 4 )]
 
-[node name="BeatPlayer" parent="MainMenu" instance=ExtResource( 5 )]
+[node name="MainMenuVP" parent="Viewport/MainMenu" instance=ExtResource( 2 )]
+
+[node name="BeatPlayer" parent="Viewport/MainMenu" instance=ExtResource( 5 )]
 stream = ExtResource( 1 )
 volume_db = -1.0
 
-[connection signal="sig_hit_input" from="." to="MainMenu/BeatPlayer" method="_on_Global_sig_hit_input"]
-[connection signal="input_pressed" from="MainMenu" to="MainMenu/BeatPlayer" method="_on_MainMenu_input_pressed"]
-[connection signal="camera_turn" from="MainMenu/MainMenuVP" to="MainMenu" method="_on_MainMenuVP_camera_turn"]
-[connection signal="measure" from="MainMenu/BeatPlayer" to="MainMenu" method="_on_BeatPlayer_measure"]
-[connection signal="note" from="MainMenu/BeatPlayer" to="." method="_on_BeatPlayer_note"]
-[connection signal="note" from="MainMenu/BeatPlayer" to="MainMenu" method="_on_BeatPlayer_note"]
-[connection signal="note" from="MainMenu/BeatPlayer" to="MainMenu/MainMenuVP" method="_on_BeatPlayer_note"]
-[connection signal="sig_time_off_beat" from="MainMenu/BeatPlayer" to="MainMenu" method="_on_BeatPlayer_sig_time_off_beat"]
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 3 )
+position = Vector2( 320, 240 )
+texture = SubResource( 1 )
 
-[editable path="MainMenu"]
-[editable path="MainMenu/MainMenuVP"]
+[connection signal="sig_hit_input" from="." to="Viewport/MainMenu/BeatPlayer" method="_on_Global_sig_hit_input"]
+[connection signal="input_pressed" from="Viewport/MainMenu" to="Viewport/MainMenu/BeatPlayer" method="_on_MainMenu_input_pressed"]
+[connection signal="camera_turn" from="Viewport/MainMenu/MainMenuVP" to="Viewport/MainMenu" method="_on_MainMenuVP_camera_turn"]
+[connection signal="measure" from="Viewport/MainMenu/BeatPlayer" to="Viewport/MainMenu" method="_on_BeatPlayer_measure"]
+[connection signal="note" from="Viewport/MainMenu/BeatPlayer" to="." method="_on_BeatPlayer_note"]
+[connection signal="note" from="Viewport/MainMenu/BeatPlayer" to="Viewport/MainMenu" method="_on_BeatPlayer_note"]
+[connection signal="note" from="Viewport/MainMenu/BeatPlayer" to="Viewport/MainMenu/MainMenuVP" method="_on_BeatPlayer_note"]
+[connection signal="sig_time_off_beat" from="Viewport/MainMenu/BeatPlayer" to="Viewport/MainMenu" method="_on_BeatPlayer_sig_time_off_beat"]
+
+[editable path="Viewport/MainMenu"]
+[editable path="Viewport/MainMenu/MainMenuVP"]

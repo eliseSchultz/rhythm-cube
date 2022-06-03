@@ -1,0 +1,78 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://assets/sprites/palette.png" type="Texture" id=1]
+[ext_resource path="res://assets/models/obj_mtl/sofa-double.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://assets/models/obj_mtl/chair-cafe.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://assets/shaders/4bitShader.gdshader" type="Shader" id=4]
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 4 )
+shader_param/u_dither_tex = ExtResource( 1 )
+
+[sub_resource type="ViewportTexture" id=7]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="SphereMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=11]
+albedo_color = Color( 0.596078, 0.862745, 0.964706, 1 )
+
+[sub_resource type="Environment" id=3]
+
+[sub_resource type="CubeMesh" id=4]
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 0.458824, 0.905882, 0.360784, 1 )
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_color = Color( 0.25098, 0.392157, 0.584314, 1 )
+
+[sub_resource type="SpatialMaterial" id=10]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[node name="ShaderTest" type="Node2D"]
+
+[node name="ViewportSprite" type="Sprite" parent="."]
+material = SubResource( 6 )
+position = Vector2( 320, 240 )
+texture = SubResource( 7 )
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 640, 480 )
+handle_input_locally = false
+hdr = false
+render_target_v_flip = true
+render_target_update_mode = 3
+
+[node name="Spatial" type="Spatial" parent="Viewport"]
+
+[node name="Camera" type="Camera" parent="Viewport/Spatial"]
+transform = Transform( 0.953454, 0.0262808, -0.300391, 0, 0.996195, 0.0871558, 0.301538, -0.083099, 0.949826, -0.803836, 2.13223, 3.38613 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Viewport/Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46259, 1.72318, -1.66212 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 11 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Viewport/Spatial"]
+environment = SubResource( 3 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Viewport/Spatial"]
+transform = Transform( 0.707107, 0.664463, -0.241845, 0, 0.34202, 0.939693, 0.707107, -0.664463, 0.241845, -2.1035, 5.24137, 3.18403 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="Viewport/Spatial"]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 0, -1.07432, 0 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="Viewport/Spatial"]
+transform = Transform( 0.983612, 0, -0.180296, 0, 1, 0, 0.180296, 0, 0.983612, 0, 0, -1.23399 )
+mesh = ExtResource( 3 )
+material/0 = SubResource( 8 )
+material/1 = SubResource( 9 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="Viewport/Spatial"]
+transform = Transform( 0.983612, 0, -0.180296, 0, 1, 0, 0.180296, 0, 0.983612, -1, 0, -1.23399 )
+mesh = ExtResource( 2 )
+skeleton = NodePath("../MeshInstance3")
+material/0 = SubResource( 10 )

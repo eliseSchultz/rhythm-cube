@@ -1,6 +1,6 @@
 extends Node
 
-var levelJson = {"note_placement":[16,24,34,40,48,56,66,72,80,88,96,106,112,120,128,136,144,154,160,168,176,186,192,200,210,216,226,232,240,248,258,264,274,280,288,298]}
+var levelJson = {"note_placement":[16,24,34,40,48,56,66,72,80,88,96,106,112,120,128,136,146,152,160,168,178,184,192,200,210,216,226,232,240,248,258,264,274,280,290,296]}
 
 var strCan = "soda_can"
 var currPlacement = 0
@@ -27,6 +27,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if(Input.is_action_just_pressed("ui_end")):
+		$BeatPlayer.stream_paused = !$BeatPlayer.stream_paused
 	if(is_lamp_on):
 		$MainMenuVP/WorldEnvironment.environment.ambient_light_color = Color("ffffff")		
 	else:

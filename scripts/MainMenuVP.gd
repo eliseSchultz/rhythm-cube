@@ -11,6 +11,7 @@ var colors=["000000","151c35","664731","ec6f15",
 var cubeMaterial
 var before_start = true
 var is_end_camera = false
+var move_camera2 = true
 
 signal camera_turn(strHexColor)
 
@@ -40,9 +41,9 @@ func _process(delta):
 		
 		
 func camera_end_pan(delta):
-	if($Camera2.translation.z < 0):
-		$Camera2.translate(Vector3(0, 0, delta*0.1))
-		$Camera2.fov += delta * 1.9
+	if($Camera2.translation.z < 0 && move_camera2):
+		$Camera2.translate(Vector3(0, 0, delta*0.13))
+		$Camera2.fov += delta * 2.1
 
 func start_playing():
 	before_start = false
@@ -64,7 +65,7 @@ func spawn_sodacan():
 	spawn_location.y = 1
 	sodacan.initialize(spawn_location, camera_position)
 	
-	add_child(sodacan)
+	var child = add_child(sodacan)
 	
 
 func _on_Pulse_timeout():
@@ -76,11 +77,18 @@ func _on_BeatPlayer_note(song_position_in_beats, song_position_in_notes):
 	if(song_position_in_beats == 40):
 		is_end_camera = true
 		$Camera2.current = true
-		$BackWall.scale = Vector3(20,15,1)
-		$LeftWall.scale = Vector3(1,15,10)
-		$Floor.scale = Vector3 (30,1,10)
+		$StaticBody/BackWall.scale = Vector3(20,15,1)
+		$StaticBody/LeftWall.scale = Vector3(1,15,10)
+		$StaticBody/Floor.scale = Vector3 (30,1,10)
 	#elif(song_position_in_beats < 40):
 		#camera_pulse(song_position_in_beats, song_position_in_notes)
 	if(song_position_in_notes % 4 == 0):
 		cubeMaterial.albedo_color = Color(colors[song_position_in_notes % 16])
+		
+	if(song_position_in_notes == 302):
+		move_camera2 = false
 
+
+
+func _on_SodaCan_input_event(camera, event, position, normal, shape_idx):
+	pass # Replace with function body.

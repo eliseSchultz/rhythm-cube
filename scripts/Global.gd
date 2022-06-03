@@ -13,19 +13,19 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(is_end_game && Input.is_action_just_pressed("ui_accept")):
-		get_tree().reload_current_scene();
-	if(!$MainMenu/BeatPlayer.playing && Input.is_action_just_pressed("ui_accept") && !is_end_game):
+		get_tree().change_scene("res://scenes/Quote2D.tscn");
+	if(!$Viewport/MainMenu/BeatPlayer.playing && Input.is_action_just_pressed("ui_accept") && !is_end_game):
 		startedPlayer = true
-		$MainMenu.start_playing()
-		$MainMenu/BeatPlayer.play_from_beat(0,0)
-	if(startedPlayer && !$MainMenu/BeatPlayer.playing):
-		$MainMenu.end_game()
+		$Viewport/MainMenu.start_playing()
+		$Viewport/MainMenu/BeatPlayer.play_from_beat(0,0)
+	if(startedPlayer && !$Viewport/MainMenu/BeatPlayer.playing):
+		$Viewport/MainMenu.end_game()
 		is_end_game = true
 	if(is_end_game && Input.is_action_just_pressed("ui_end")):
 		get_tree().quit()
 
 		
-	if($MainMenu/BeatPlayer.playing):
+	if($Viewport/MainMenu/BeatPlayer.playing):
 		handle_input();
 
 func _on_BeatPlayer_note(song_position_in_beats, song_position_in_notes):
