@@ -12,12 +12,12 @@ shader_param/u_dither_tex = ExtResource( 1 )
 [sub_resource type="ViewportTexture" id=7]
 viewport_path = NodePath("Viewport")
 
+[sub_resource type="Environment" id=3]
+
 [sub_resource type="SphereMesh" id=1]
 
 [sub_resource type="SpatialMaterial" id=11]
 albedo_color = Color( 0.596078, 0.862745, 0.964706, 1 )
-
-[sub_resource type="Environment" id=3]
 
 [sub_resource type="CubeMesh" id=4]
 
@@ -46,19 +46,20 @@ render_target_update_mode = 3
 
 [node name="Spatial" type="Spatial" parent="Viewport"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Viewport/Spatial"]
+environment = SubResource( 3 )
+
 [node name="Camera" type="Camera" parent="Viewport/Spatial"]
-transform = Transform( 0.953454, 0.0262808, -0.300391, 0, 0.996195, 0.0871558, 0.301538, -0.083099, 0.949826, -0.803836, 2.13223, 3.38613 )
+transform = Transform( 0.953454, 0.0262808, -0.300391, 0.0956295, 0.918416, 0.383884, 0.285972, -0.394742, 0.873155, -0.803836, 2.79989, 3.38613 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Viewport/Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46259, 1.72318, -1.66212 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 11 )
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Viewport/Spatial"]
-environment = SubResource( 3 )
-
 [node name="DirectionalLight" type="DirectionalLight" parent="Viewport/Spatial"]
-transform = Transform( 0.707107, 0.664463, -0.241845, 0, 0.34202, 0.939693, 0.707107, -0.664463, 0.241845, -2.1035, 5.24137, 3.18403 )
+transform = Transform( 0.949861, 0.306162, 0.0634713, -0.0762227, 0.0298623, 0.996644, 0.303239, -0.951511, 0.0517016, -2.78395, 4.74681, -0.198405 )
+shadow_enabled = true
 
 [node name="MeshInstance2" type="MeshInstance" parent="Viewport/Spatial"]
 transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 0, -1.07432, 0 )

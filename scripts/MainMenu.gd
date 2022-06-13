@@ -32,7 +32,7 @@ func _process(_delta):
 	if(is_lamp_on):
 		$MainMenuVP/WorldEnvironment.environment.ambient_light_color = Color("ffffff")		
 	else:
-		$MainMenuVP/WorldEnvironment.environment.ambient_light_color = Color("888888")
+		$MainMenuVP/WorldEnvironment.environment.ambient_light_color = Color("aaaaaa")
 		
 
 func start_playing():
@@ -75,6 +75,8 @@ func _on_BeatPlayer_measure(position):
 
 
 func _on_BeatPlayer_note(song_position_in_beats, song_position_in_notes):
+	if($SodaCanSprite.visible):
+		$SodaCanSprite.frame += 1
 	if(song_position_in_beats >= 12):
 		$FBG.visible = false
 		$F.visible = false
@@ -86,8 +88,10 @@ func _on_BeatPlayer_note(song_position_in_beats, song_position_in_notes):
 		$SodaCanSprite.visible = true;
 		$F.modulate = Color("ef1543")
 		currPlacement += 1;
-	if(hitPlacement == song_position_in_notes):
+		$SodaCanSprite.frame = 0;
+	if(song_position_in_notes == hitPlacement+1):
 		$SodaCanSprite.visible = false;
+	if(hitPlacement == song_position_in_notes):
 		$F.modulate = Color("6de735")
 	else:
 		$F.modulate = Color("c9ebff")
@@ -133,6 +137,7 @@ func successful_hit():
 	$GreenCheck.visible = true
 	$MainMenuVP.spawn_sodacan()
 	score += 30
+	$SodaCanSprite.visible = false;
 	
 
 

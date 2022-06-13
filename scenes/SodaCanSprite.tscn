@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/sprites/soda_sheet.png" type="Texture" id=1]
+
+[node name="SodaCanSprite" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 320, 240 )
+texture = ExtResource( 1 )
+hframes = 5
