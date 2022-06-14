@@ -18,28 +18,16 @@ signal camera_turn(strHexColor)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	$Camera.translation = Vector3(-2.7, 2, -2.7)
-	$Camera.rotation_degrees = Vector3(-25,45,0)
 	$Camera.make_current()
 	cubeMaterial = $cube.get_surface_material(0)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(before_start):
-		$Camera.rotate_y(delta * cameraSpeed * cameraMove)
-		if($Camera.rotation_degrees.y > 50 and cameraMove > 0):
-			cameraMove = cameraMove * -1
-			emit_signal("camera_turn", colors[randi() % 16])
-		if($Camera.rotation_degrees.y < 40 and cameraMove < 0):
-			cameraMove = cameraMove * -1
-			emit_signal("camera_turn", colors[randi() % 16])
-	else:
-		$Camera.rotation_degrees.y = 45
 	if(is_end_camera):
 		camera_end_pan(delta)
 		
-		
+
 func camera_end_pan(delta):
 	if($Camera2.translation.z < 0 && move_camera2):
 		$Camera2.translate(Vector3(0, 0, delta*0.13))
@@ -47,7 +35,8 @@ func camera_end_pan(delta):
 
 func start_playing():
 	before_start = false
-	$Camera.rotation_degrees.y = 45
+	$Camera/AnimationPlayer.play("New Anim")
+	$Camera/AnimationPlayer.playback_speed = 0.3
 
 func camera_pulse(song_position_in_beats, song_position_in_notes):
 	if(song_position_in_notes % 8 == 0):
@@ -68,10 +57,6 @@ func spawn_sodacan():
 	var child = add_child(sodacan)
 	
 
-func _on_Pulse_timeout():
-	$Camera.fov = 25;
-	pass # Replace with function body.
-
 
 func _on_BeatPlayer_note(song_position_in_beats, song_position_in_notes):
 	if(song_position_in_beats == 40):
@@ -84,7 +69,11 @@ func _on_BeatPlayer_note(song_position_in_beats, song_position_in_notes):
 		#camera_pulse(song_position_in_beats, song_position_in_notes)
 	if(song_position_in_notes % 4 == 0):
 		cubeMaterial.albedo_color = Color(colors[song_position_in_notes % 16])
-		
+	if(song_position_in_notes % 16 == 0 && !is_end_camera):
+		if($Camera.current):
+			$Camera3.make_current()
+		else:
+			$Camera.make_current()
 	if(song_position_in_notes == 302):
 		move_camera2 = false
 

@@ -35,12 +35,13 @@ func _process(_delta):
 		$MainMenuVP/WorldEnvironment.environment.ambient_light_color = Color("aaaaaa")
 		
 
-func start_playing():
+func start_playing(sec_per_beat):
 	$MainMenuVP.start_playing()
 	$PressSpace.visible = false;
 	$PressSpaceBG.visible = false;
 	$FBG.visible = true
 	$F.visible = true
+	$MainMenuVP/Camera/AnimationPlayer.playback_speed = 1 / sec_per_beat
 	
 func end_game():
 	if(score >= 930):
@@ -139,7 +140,3 @@ func successful_hit():
 	score += 30
 	$SodaCanSprite.visible = false;
 	
-
-
-func _on_MainMenuVP_camera_turn(strHexColor):
-	$PressSpace.modulate = Color(strHexColor)

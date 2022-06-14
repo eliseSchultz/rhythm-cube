@@ -16,7 +16,7 @@ func _process(delta):
 		get_tree().change_scene("res://scenes/Quote2D.tscn");
 	if(!$Viewport/MainMenu/BeatPlayer.playing && Input.is_action_just_pressed("ui_accept") && !is_end_game):
 		startedPlayer = true
-		$Viewport/MainMenu.start_playing()
+		$Viewport/MainMenu.start_playing($Viewport/MainMenu/BeatPlayer.sec_per_beat)
 		$Viewport/MainMenu/BeatPlayer.play_from_beat(0,0)
 	if(startedPlayer && !$Viewport/MainMenu/BeatPlayer.playing):
 		$Viewport/MainMenu.end_game()

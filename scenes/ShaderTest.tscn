@@ -13,6 +13,8 @@ shader_param/u_dither_tex = ExtResource( 1 )
 viewport_path = NodePath("Viewport")
 
 [sub_resource type="Environment" id=3]
+ambient_light_color = Color( 0.117647, 0.117647, 0.117647, 1 )
+ssao_bias = 0.001
 
 [sub_resource type="SphereMesh" id=1]
 
@@ -58,8 +60,10 @@ mesh = SubResource( 1 )
 material/0 = SubResource( 11 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Viewport/Spatial"]
-transform = Transform( 0.949861, 0.306162, 0.0634713, -0.0762227, 0.0298623, 0.996644, 0.303239, -0.951511, 0.0517016, -2.78395, 4.74681, -0.198405 )
+transform = Transform( 0.9031, 0.269651, -0.334215, 0.192236, 0.442084, 0.876132, 0.384001, -0.855483, 0.347409, -2.18112, 4.74681, 2.09292 )
 shadow_enabled = true
+shadow_reverse_cull_face = true
+editor_only = true
 
 [node name="MeshInstance2" type="MeshInstance" parent="Viewport/Spatial"]
 transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 0, -1.07432, 0 )
@@ -67,13 +71,13 @@ mesh = SubResource( 4 )
 material/0 = null
 
 [node name="MeshInstance3" type="MeshInstance" parent="Viewport/Spatial"]
-transform = Transform( 0.983612, 0, -0.180296, 0, 1, 0, 0.180296, 0, 0.983612, 0, 0, -1.23399 )
+transform = Transform( 0.983612, 0, -0.180296, 0, 1, 0, 0.180296, 0, 0.983612, 0, -0.069483, -1.23399 )
 mesh = ExtResource( 3 )
 material/0 = SubResource( 8 )
 material/1 = SubResource( 9 )
 
 [node name="MeshInstance4" type="MeshInstance" parent="Viewport/Spatial"]
-transform = Transform( 0.983612, 0, -0.180296, 0, 1, 0, 0.180296, 0, 0.983612, -1, 0, -1.23399 )
+transform = Transform( 0.983612, 0, -0.180296, 0, 1, 0, 0.180296, 0, 0.983612, -1, -0.0798248, -1.23399 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("../MeshInstance3")
 material/0 = SubResource( 10 )
