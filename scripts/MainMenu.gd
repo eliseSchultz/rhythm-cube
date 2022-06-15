@@ -96,7 +96,7 @@ func _on_BeatPlayer_note(song_position_in_beats, song_position_in_notes):
 		$F.modulate = Color("6de735")
 	else:
 		$F.modulate = Color("c9ebff")
-	if(!hit_last && song_position_in_notes == hitPlacement + 1):
+	if(!hit_last && !missed_last && song_position_in_notes == hitPlacement + 1):
 		if($MissSound.playing):
 			$MissSound.stop()
 		$MissSound.play()

@@ -19,6 +19,7 @@ signal camera_turn(strHexColor)
 func _ready():
 	randomize()
 	$Camera.make_current()
+	$Camera/AnimationPlayer.play("start_anim")
 	cubeMaterial = $cube.get_surface_material(0)
 
 
@@ -35,8 +36,10 @@ func camera_end_pan(delta):
 
 func start_playing():
 	before_start = false
-	$Camera/AnimationPlayer.play("New Anim")
+	$Camera4/AnimationPlayer.play("beginning_angle")
+	$Camera4/AnimationPlayer.playback_speed = 0.3
 	$Camera/AnimationPlayer.playback_speed = 0.3
+	$Camera4.make_current()
 
 func camera_pulse(song_position_in_beats, song_position_in_notes):
 	if(song_position_in_notes % 8 == 0):
@@ -69,11 +72,12 @@ func _on_BeatPlayer_note(song_position_in_beats, song_position_in_notes):
 		#camera_pulse(song_position_in_beats, song_position_in_notes)
 	if(song_position_in_notes % 4 == 0):
 		cubeMaterial.albedo_color = Color(colors[song_position_in_notes % 16])
-	if(song_position_in_notes % 16 == 0 && !is_end_camera):
+	if(song_position_in_notes % 16 == 0 && !is_end_camera && song_position_in_notes > 8):
 		if($Camera.current):
 			$Camera3.make_current()
 		else:
 			$Camera.make_current()
+			$Camera/AnimationPlayer.play("New Anim")
 	if(song_position_in_notes == 302):
 		move_camera2 = false
 

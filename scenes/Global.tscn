@@ -26,6 +26,7 @@ render_target_v_flip = true
 
 [node name="Camera" parent="Viewport/MainMenu/MainMenuVP" index="1"]
 transform = Transform( 0.0691297, 0.16388, 0.984055, 7.1806e-09, 0.986415, -0.164273, -0.997608, 0.0113561, 0.0681905, -1.99891, 1.33994, -3.71332 )
+fov = 53.0
 
 [node name="MainMenuVP" parent="Viewport/MainMenu" instance=ExtResource( 2 )]
 
